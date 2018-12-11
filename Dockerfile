@@ -2,6 +2,6 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y postgresql dnsutils iputils-ping vim
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
 
-CMD ["echo" "container completed. Try running interactively"]
+CMD ["trap : TERM INT; sleep infinity & wait"]
